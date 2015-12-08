@@ -1,0 +1,34 @@
+[color]
+  ui = true
+[alias]
+  st = status -sb
+  ci = commit
+  b = branch
+  co = checkout
+  df = diff --word-diff
+  dfc = diff --cached
+  ds = diff --stat
+  lg = log --pretty='%Cgreen%h%Creset %Cred%ad%Creset %s %Cred%d%Creset %Cblue%an%Creset'  --graph --date=short --date-order
+  pl = pull --rebase
+  p = push --follow-tags
+  mff = merge --ff-only
+  mnoff = merge --no-ff
+  mprod = "!f() { git checkout production && git merge --ff-only master && git checkout -; }; f"
+  pp = "!git checkout production && git push && git checkout -"
+  ai = add -i
+  ap = add -p
+  rp = reset --patch
+  # run pre-commit hooks on a rebase --continue
+  rc = "!.git/hooks/pre-commit && git rebase --continue"
+  cloc = difftool -t cloc -y
+[branch]
+  autosetuprebase = always
+[rebase]
+  autostash = true
+[pull]
+  autostash = true
+[push]
+  default = simple
+  followTags = true
+[core]
+  editor = vim
