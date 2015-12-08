@@ -1,0 +1,8 @@
+#!/bin/bash
+# Echo a random word having at least 4 chars.
+
+words=$(cat /usr/share/dict/words | ag '^[A-Za-z]{3,9}$')
+count=$(echo "$words" | wc -l)
+r=$(rand -M ${count})
+
+echo "$words" | sed -e "${r}q;d"

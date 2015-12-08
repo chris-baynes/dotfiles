@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Watches for file changes in the current directory
+# and runs provided command when a file is modified.
+# e.g.
+#
+# fwatch go test
+
+inotifywait -m -r -e modify --exclude '.*\.sw[a-z]' . | while read line; do echo && echo '===' && $@ ; done
